@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+/* 1. FORCE TAILWIND V4 TO SCAN YOUR CUSTOM COMPONENTS FOLDER */
+@source "../components/**/*.{js,ts,jsx,tsx}";
+
+@theme {
+  --animate-fade-in: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 2. RE-ESTABLISH GLOBAL LAYOUT RESETS */
+html, body {
+  background-color: #050506 !important; /* Cinematic Black */
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: system-ui, -apple-system, sans-serif;
+}
