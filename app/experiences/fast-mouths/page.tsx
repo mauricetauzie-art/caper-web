@@ -88,7 +88,6 @@ export default function FastMouthsShowcase() {
           </span>
         </div>
       </div>
-git
       {/* Main Structural Content Grid Track */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
         

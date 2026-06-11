@@ -58,7 +58,6 @@ export default function ExperiencesPage() {
       status: "READY", 
       slug: "fast-mouths" 
     },
-    { name: "Sportreel Engine", category: "Mobile Apps", status: "DEV" },
     { name: "Corporate Hosting", category: "Event Strategy", status: "ACTIVE" },
     { name: "Gaming Tournaments", category: "Activations", status: "READY" },
     { name: "Team Facilitation", category: "Group Logistics", status: "ACTIVE" },

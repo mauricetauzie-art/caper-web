@@ -31,7 +31,8 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full h-screen bg-zinc-950 flex flex-col justify-center items-start px-6 md:px-24 overflow-hidden select-none">
+// Update the main container component to look like this:
+<section className="min-h-[40vh] sm:min-h-[50vh] flex flex-col justify-between py-8 px-6 relative w-full">
       
       {/* 1. Cinematic Background Video Layer Loop */}
       <div className="absolute inset-0 z-0 bg-black">
