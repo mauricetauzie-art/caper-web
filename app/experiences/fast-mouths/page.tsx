@@ -88,7 +88,7 @@ export default function FastMouthsShowcase() {
           </span>
         </div>
       </div>
-
+git
       {/* Main Structural Content Grid Track */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
         
@@ -319,8 +319,7 @@ export default function FastMouthsShowcase() {
             }}
             className="absolute right-4 md:right-12 top-1/2 -translate-y-1/2 p-4 text-zinc-500 hover:text-white font-mono text-xl focus:outline-none transition-colors"
           >
-            ›
-          </button>
+                    </button>
         </div>
       )}
     </main>

@@ -18,18 +18,20 @@ const PORTFOLIO_CATEGORIES = [
     gallery: [
       '/portfolio/wedding.jpg',
       '/portfolio/portrait.JPG',
-      '/portfolio/wedding-dress.JPG'
+      '/portfolio/wedding-dress.JPG',
+      '/portfolio/wedding1.jpg'
     ]
   },
   {
     id: 'corporate-events',
     title: 'Corporate Events',
     pillar: 'photography',
-    thumbnail: '/portfolio/IMG_0019.jpg',
+    thumbnail: '/portfolio/event setup.jpg',
     isVideo: false,
     gallery: [
-      '/portfolio/IMG_0019.jpg',
-      '/portfolio/climbing-tall.JPG'
+      '/portfolio/event setup.jpg',
+      '/portfolio/chizmo.JPG',
+      '/portfolio/fusion.jpg',
     ]
   },
   {
@@ -40,7 +42,8 @@ const PORTFOLIO_CATEGORIES = [
     isVideo: false,
     gallery: [
       '/portfolio/portrait.jpg',
-      '/portfolio/IMG_9966.jpg'
+      '/portfolio/headshot.jpg',
+      '/portfolio/headshot1.jpg'
     ]
   },
   // ─── MOTION PILLAR (VIDEOGRAPHY) ───────────────────────────────────
@@ -69,25 +72,28 @@ const PORTFOLIO_CATEGORIES = [
     id: 'adverts',
     title: 'Adverts',
     pillar: 'graphic design',
-    thumbnail: '/portfolio/landscape.JPG',
+    thumbnail: '/portfolio/BoardGames.png',
     isVideo: false,
-    gallery: ['/portfolio/landscape.JPG']
+    gallery: ['/portfolio/BoardGames.png']
   },
   {
     id: 'printables',
     title: 'Printables',
     pillar: 'graphic design',
-    thumbnail: '/portfolio/climbing-wide.JPG',
+    thumbnail: '/portfolio/WHITE CM1.png',
     isVideo: false,
-    gallery: ['/portfolio/climbing-wide.JPG']
+    gallery: ['/portfolio/WHITE CM1.png',
+      '/portfolio/BLACK CM2.png',
+      '/portfolio/print.png'
+    ]
   },
   {
     id: 'abstract',
     title: 'Abstract Design',
     pillar: 'graphic design',
-    thumbnail: '/portfolio/DJI_0050.jpg',
+    thumbnail: '/portfolio/print.png',
     isVideo: false,
-    gallery: ['/portfolio/DJI_0050.jpg']
+    gallery: ['/portfolio/print.png']
   }
 ];
 
