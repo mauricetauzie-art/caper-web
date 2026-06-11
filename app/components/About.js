@@ -73,7 +73,7 @@ export default function About() {
           ref={text1Ref} 
           className="text-3xl md:text-5xl font-light text-zinc-100 leading-tight tracking-tight"
         >
-          Even though he studied <span className="text-white font-medium underline decoration-zinc-700 underline-offset-8">Statistics and Mathematics</span>, his deep-seated passion led to the creation of a premier media space.
+          From studying <span className="text-white font-medium underline decoration-zinc-700 underline-offset-8">Statistics</span>, a deep-seated passion for visuals and entertainment led to the creation of a premier media space.
         </p>
         
         {/* Supporting Narrative */}
