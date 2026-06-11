@@ -31,8 +31,7 @@ export default function Hero() {
   }, []);
 
   return (
-// Update the main container component to look like this:
-<section className="min-h-[40vh] sm:min-h-[50vh] flex flex-col justify-between py-8 px-6 relative w-full">
+    <section className="min-h-screen md:min-h-[90vh] flex flex-col justify-between py-12 px-6 md:px-24 relative w-full overflow-hidden">
       
       {/* 1. Cinematic Background Video Layer Loop */}
       <div className="absolute inset-0 z-0 bg-black">
@@ -48,20 +47,15 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-black/60 z-10" />
       </div>
 
-      {/* 2. Absolute Fixed Minimal Navigation Header */}
-      <nav className="absolute top-0 left-0 w-full z-40 flex items-center justify-between px-6 md:px-24 py-8">
+      {/* 2. Top Branding Header */}
+      <div className="relative z-40 flex items-center justify-between w-full pt-4">
         <a href="#" className="text-sm tracking-[0.4em] font-black uppercase text-white hover:opacity-80 transition-opacity">
           CAPER STUDIOS.
         </a>
-        <div className="flex items-center gap-x-8 text-xs tracking-[0.3em] text-zinc-400 uppercase font-medium">
-          <a href="#about" className="hover:text-white transition-colors duration-300">About</a>
-          <a href="#portfolio" className="hover:text-white transition-colors duration-300">Portfolio</a>
-          <a href="#contact" className="hover:text-white transition-colors duration-300">Contact</a>
-        </div>
-      </nav>
+      </div>
 
       {/* 3. Hero Copy Content Layout */}
-      <div className="relative z-20 max-w-4xl mt-12">
+      <div className="relative z-20 max-w-4xl my-auto pt-12">
         <p 
           ref={sublineRef}
           className="text-[10px] md:text-xs tracking-[0.4em] text-zinc-400 uppercase font-bold mb-4 ml-1"
@@ -78,13 +72,23 @@ export default function Hero() {
         </h1>
       </div>
 
-      {/* 4. Ambient Scroll Indicator Button */}
+      {/* 4. Combined Scroll Indicator & Left-Aligned Navigation Controls */}
       <div 
         ref={ctaRef}
-        className="absolute bottom-12 left-6 md:left-24 z-20 flex items-center gap-x-3 text-[10px] tracking-[0.3em] text-zinc-500 uppercase font-medium"
+        className="relative z-20 flex flex-col gap-y-4 w-full pt-8 border-t border-zinc-900/40"
       >
-        <div className="w-8 h-[1px] bg-zinc-800 animate-pulse" />
-        <span>Scroll to Explore</span>
+        {/* Ambient Scroll Element */}
+        <div className="flex items-center gap-x-3 text-[10px] tracking-[0.3em] text-zinc-500 uppercase font-medium">
+          <div className="w-8 h-[1px] bg-zinc-800 animate-pulse" />
+          <span>Scroll to Explore</span>
+        </div>
+
+        {/* Repositioned Links - Stacked perfectly underneath on the left */}
+        <nav className="flex flex-wrap items-center gap-x-8 gap-y-2 pl-11 text-[10px] sm:text-xs tracking-[0.3em] text-zinc-400 uppercase font-medium">
+          <a href="#about" className="hover:text-white transition-colors duration-300">About</a>
+          <a href="#portfolio" className="hover:text-white transition-colors duration-300">Portfolio</a>
+          <a href="#contact" className="hover:text-white transition-colors duration-300">Contact</a>
+        </nav>
       </div>
 
     </section>
