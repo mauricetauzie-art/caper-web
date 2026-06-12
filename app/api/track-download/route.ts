@@ -18,5 +18,10 @@ export async function GET() {
 
   // 3. Seamlessly redirect the browser to pull the actual asset file
   // This points to your public folder asset location
-  return NextResponse.redirect(new URL('/downloads/fast-mouths-client.apk', process.env.NEXT_PUBLIC_SITE_URL || 'https://caper-apps.netlify.app'));
+  return NextResponse.redirect(
+    new URL(
+      '/downloads/fast-mouths-latest.apk', 
+      process.env.NEXT_PUBLIC_SITE_URL || 'https://capermalawi.netlify.app'
+    )
+  ); // <-- Added the closing parenthesis here
 }
