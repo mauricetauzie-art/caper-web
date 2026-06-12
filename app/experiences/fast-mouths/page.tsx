@@ -55,7 +55,8 @@ export default function FastMouthsShowcase() {
       setHasDownloaded(true);
     }
 
-    window.location.href = '/downloads/fast-mouths-latest.apk'; 
+    // UPDATED: Routes through your serverless API logic instead of pointing directly to the public folder file asset
+    window.location.href = '/api/track-download'; 
   };
 
   const handleFeedbackSubmit = async (e: React.FormEvent) => {
@@ -284,7 +285,7 @@ export default function FastMouthsShowcase() {
           {/* Center Display Pipeline Frame */}
           <div 
             className="relative max-w-full max-h-[80vh] w-[90vw] md:w-[450px] aspect-[9/16] flex items-center justify-center"
-            onClick={(e) => e.stopPropagation()} // Stop modal from closing when clicking inside the screen box
+            onClick={(e) => e.stopPropagation()} 
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img 
@@ -318,7 +319,8 @@ export default function FastMouthsShowcase() {
             }}
             className="absolute right-4 md:right-12 top-1/2 -translate-y-1/2 p-4 text-zinc-500 hover:text-white font-mono text-xl focus:outline-none transition-colors"
           >
-                    </button>
+            ›
+          </button>
         </div>
       )}
     </main>
