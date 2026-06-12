@@ -55,7 +55,7 @@ export default function FastMouthsShowcase() {
       setHasDownloaded(true);
     }
 
-    // UPDATED: Routes through your serverless API logic instead of pointing directly to the public folder file asset
+    // Routes through your serverless API logic
     window.location.href = '/api/track-download'; 
   };
 
@@ -63,8 +63,19 @@ export default function FastMouthsShowcase() {
     e.preventDefault();
     if (!feedbackData.name || !feedbackData.log) return;
 
-    const payload = { ...feedbackData, project: 'Fast Mouths' };
-    console.log('Routing private build log:', payload);
+    // Helper function to format the data for Netlify's URL-encoded intake handler
+    const encode = (data: { [key: string]: string }) => {
+      return Object.keys(data)
+        .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+        .join('&');
+    };
+
+    // POST the data directly to your Netlify server site root
+    await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name': 'fast-mouths-reviews', ...feedbackData })
+    });
 
     setFeedbackSubmitted(true);
     setFeedbackData({ name: '', type: 'Feedback', log: '' });
@@ -215,17 +226,27 @@ export default function FastMouthsShowcase() {
             <h3 className="text-xs tracking-[0.3em] font-mono text-zinc-500 uppercase">// APPS SUPPORT & LOG INTAKE</h3>
             
             {!feedbackSubmitted ? (
-              <form onSubmit={handleFeedbackSubmit} className="space-y-3 bg-zinc-900/10 border border-zinc-900 p-4 rounded-sm">
+              /* Added name and data-netlify="true" so Netlify knows to capture this form */
+              <form 
+                onSubmit={handleFeedbackSubmit} 
+                name="fast-mouths-reviews"
+                data-netlify="true"
+                className="space-y-3 bg-zinc-900/10 border border-zinc-900 p-4 rounded-sm"
+              >
                 <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider">// SYSTEM DISPATCHER</p>
+                
+                {/* CRITICAL: This hidden input maps the Next.js state to Netlify's bot */}
+                <input type="hidden" name="form-name" value="fast-mouths-reviews" />
                 
                 <div className="grid grid-cols-1 gap-2">
                   <input 
-                    type="text" required placeholder="Your Name / Email"
+                    type="text" required placeholder="Your Name / Email" name="name"
                     value={feedbackData.name}
                     className="bg-zinc-900 border border-zinc-800 rounded-none px-3 py-1.5 text-xs text-white outline-none focus:border-violet-500 transition-all font-mono w-full"
                     onChange={(e) => setFeedbackData({ ...feedbackData, name: e.target.value })}
                   />
                   <select 
+                    name="type"
                     className="bg-zinc-900 border border-zinc-800 rounded-none px-3 py-1.5 text-xs text-white outline-none focus:border-violet-500 transition-all font-mono w-full appearance-none cursor-pointer"
                     value={feedbackData.type}
                     onChange={(e) => setFeedbackData({ ...feedbackData, type: e.target.value })}
@@ -237,7 +258,7 @@ export default function FastMouthsShowcase() {
                 </div>
 
                 <textarea 
-                  rows={4} required placeholder="Write your app build experience notes or custom feedback parameters..."
+                  rows={4} required placeholder="Write your app build experience notes or custom feedback parameters..." name="log"
                   value={feedbackData.log}
                   className="w-full bg-zinc-900 border border-zinc-800 rounded-none px-3 py-2 text-xs text-zinc-300 placeholder-zinc-600 outline-none focus:border-violet-500 transition-all font-mono resize-none"
                   onChange={(e) => setFeedbackData({ ...feedbackData, log: e.target.value })}
